@@ -1,5 +1,5 @@
 from keras.models import load_model
-model = load_model('/content/saved_models/weights.best.basic_mlp.hdf5')
+model = load_model('weights.best.basic_mlp.hdf5')
 
 import numpy as np
 # from keras.models import Sequential
@@ -52,5 +52,5 @@ def print_prediction(file_name):
         category = le.inverse_transform(np.array([i]))
         print(category[0], "\t\t : ", format(predicted_proba[i], '.32f') )
 
-filename='/content/typing.wav'
+filename='typing.wav'
 print_prediction(filename)
