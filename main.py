@@ -11,9 +11,21 @@ from sklearn.preprocessing import LabelEncoder
 # from keras.utils import np_utils
 # from sklearn import metrics
 import librosa
-import librosa.display
+# import librosa.display
 import os
 le = LabelEncoder()
+dataset_classes=[]
+with open('classes.txt', 'r') as filehandle:
+    for line in filehandle:
+        # remove linebreak which is the last character of the string
+        currentPlace = line[:-1]
+
+        # add item to the list
+        dataset_classes.append(currentPlace)
+dataset_classes = np.array(dataset_classes)
+le.fit_transform(dataset_classes)
+
+
 def extract_feature(file_name):
 
     try:
